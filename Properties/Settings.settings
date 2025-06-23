@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings>
+    <Setting Name="UnifiedRecognitionUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://127.0.0.1:1688/api/v1/unified_recognition</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

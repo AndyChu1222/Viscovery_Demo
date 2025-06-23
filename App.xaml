@@ -1,0 +1,9 @@
+<Application x:Class="ViscoveryDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ViscoveryDemo.Presentation.ViewModels"
+             xmlns:local="clr-namespace:ViscoveryDemo.Presentation.Views">
+    <Application.Resources>
+     
+    </Application.Resources>
+</Application>
