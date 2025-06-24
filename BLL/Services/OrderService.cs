@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ViscoveryDemo.DAL.Repositories;
 using ViscoveryDemo.BLL.Models;
+using System.Windows.Controls;
+using System.Threading.Tasks;
 
 namespace ViscoveryDemo.BLL.Services
 {
@@ -16,8 +18,9 @@ namespace ViscoveryDemo.BLL.Services
             _recognitionRepository = recognitionRepository;
         }
 
-        public IEnumerable<Order> LoadOrders(string orderType)
+        public async Task<IEnumerable<Order>> LoadOrdersAsync(string orderType)
         {
+            // VisAgent 跳出並等待辨識結果
             var orders = _repository.GetOrders(orderType).Select(o => new Order
             {
                 Id = o.Id,
@@ -25,15 +28,13 @@ namespace ViscoveryDemo.BLL.Services
                 Name = o.Name,
                 Price = o.Price
             }).ToList();
-
-            //呼叫並檢核API是否符合當前的商品
-            var response = _recognitionRepository.UnifiedRecognition(orderType);
-            var recognized = response.Data?.Order?.Plates?
+            //因發現會需要等待使用者按下按鈕，若超過時間會Timeout，故暫時不使用await
+            var response =  _recognitionRepository.UnifiedRecognition(orderType);
+            var recognized = response?.Data?.Order?.Plates?
                 .SelectMany(p => p.Instances)
                 .Select(i => i.Product.ProductCode)
                 .ToList() ?? new List<string>();
 
-            //檢核商品是否符合條件
             foreach (var order in orders)
             {
                 order.Status = recognized.Contains(order.Code) ? OrderStatus.Confirm : OrderStatus.Undetected;

@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using ViscoveryDemo.BLL.Models;
@@ -84,14 +85,15 @@ namespace ViscoveryDemo.Presentation.ViewModels
         private RelayCommand _confirmCommand;
         public ICommand ConfirmCommand => _confirmCommand = new RelayCommand(_ => Confirm(), _ => CanConfirm);
 
-        public ICommand ScanCommand { get; }
+        public AsyncRelayCommand ScanCommand { get; }
         public ICommand NewOrderCommand { get; }
 
         public Page1ViewModel(INavigationService navigationService, IOrderService orderService)
         {
             _navigationService = navigationService;
             _orderService = orderService;
-            ScanCommand = new RelayCommand(_ => Scan());
+            ScanCommand = new AsyncRelayCommand(ScanAsync);
+            //ScanCommand = new RelayCommand(_ => Scan());
             NewOrderCommand = new RelayCommand(_ => ClearOrders());
         }
 
@@ -108,7 +110,7 @@ namespace ViscoveryDemo.Presentation.ViewModels
             System.Diagnostics.Debug.WriteLine("Exit Page1ViewModel");
         }
 
-        private void Scan()
+        private async Task ScanAsync()
         {
             var dialog = new ScanInputWindow();
             if (dialog.ShowDialog() != true)
@@ -117,7 +119,10 @@ namespace ViscoveryDemo.Presentation.ViewModels
             }
 
             Orders.Clear();
-            foreach (var order in _orderService.LoadOrders(dialog.OrderType))
+
+            var loadedOrders = await _orderService.LoadOrdersAsync(dialog.OrderType);
+
+            foreach (var order in loadedOrders)
             {
                 Orders.Add(order);
             }
@@ -134,6 +139,7 @@ namespace ViscoveryDemo.Presentation.ViewModels
                 FailedVisibility = Visibility.Collapsed;
                 SuccessVisibility = Visibility.Visible;
             }
+
             StandbyVisibility = Visibility.Collapsed;
         }
 

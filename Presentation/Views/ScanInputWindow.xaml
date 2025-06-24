@@ -1,7 +1,10 @@
 <Window x:Class="ViscoveryDemo.Presentation.Views.ScanInputWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Scan" Height="150" Width="300" WindowStartupLocation="CenterOwner">
+        Title="Scan" Height="150" Width="300"
+        Loaded="Window_Loaded" Visibility="Hidden" ShowInTaskbar="False"
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <StackPanel Margin="10">
         <TextBlock Text="Enter order type (1,2,3):" Margin="0,0,0,5"/>
         <TextBox x:Name="InputTextBox" Margin="0,0,0,5"/>

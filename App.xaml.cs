@@ -19,6 +19,10 @@ namespace ViscoveryDemo
             ConfigureServices(services);
             _serviceProvider = services.BuildServiceProvider();
 
+            // ±Ò°Ê VisAgent
+            var visAgentService = _serviceProvider.GetRequiredService<IShowViscoveryService>();
+            visAgentService.StartVisAgent();
+
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.DataContext = _serviceProvider.GetRequiredService<MainViewModel>();
 
@@ -30,6 +34,7 @@ namespace ViscoveryDemo
 
         private void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IShowViscoveryService, ShowViscoveryService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IOrderRepository, InMemoryOrderRepository>();
             services.AddSingleton<IUnifiedRecognitionRepository, ApiUnifiedRecognitionRepository>();
