@@ -6,7 +6,7 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Loaded="Window_Loaded"
-         KeyDown="InputTextBox_KeyDown" Visibility="Visible" Opacity="0">
+         KeyDown="InputTextBox_KeyDown" Visibility="Visible" Opacity="0" Foreground="{x:Null}">
 
     <StackPanel Margin="10" Opacity="0">
         <TextBlock Text="Enter order type (1,2,3):" Margin="0,0,0,5"/>
