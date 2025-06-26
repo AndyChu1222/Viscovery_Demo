@@ -295,12 +295,12 @@
                 <Grid x:Name="successful_green" Margin="0,10" Visibility="{Binding SuccessVisibility}">
                     <Rectangle x:Name="ge" Height="80" VerticalAlignment="Top" Width="1820" Fill="#FF14532D" RadiusX="8" RadiusY="8"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,10,0,44.6" TextWrapping="Wrap" Text="Scan Successful" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="3 items detected and processed" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="{Binding ScanSuccessText}" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                 </Grid>
                 <Grid x:Name="failed_red" Margin="0,10" Visibility="{Binding FailedVisibility}">
                     <Rectangle x:Name="r" Height="80" VerticalAlignment="Top" Width="1820" Fill="#FF792319" RadiusX="8" RadiusY="8"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,10,0,44.6" TextWrapping="Wrap" Text="Scan Failed" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="1 items was not detected" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="{Binding ScanFailText}" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                 </Grid>
             </Grid>
             <Grid Margin="0,0,0,50" Grid.Row="1" VerticalAlignment="Top" Width="1820" Height="780">
@@ -346,7 +346,28 @@
                                     <Rectangle Fill="#FF2A2A2A" Margin="0" RadiusY="8" RadiusX="8" Grid.ColumnSpan="4"/>
                                     <TextBlock HorizontalAlignment="Left" Margin="20,16,0,16" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="32" Foreground="White" FontWeight="Bold" Grid.Column="1" Text="{Binding Name}"/>
                                     <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Foreground="White" FontSize="24" FontWeight="Bold" Grid.Column="2" Text="{Binding Price, StringFormat=C}"/>
-                                    <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Grid.Column="3" Foreground="White" Text="{Binding Status}"/>
+                                    <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" TextWrapping="Wrap" 
+                                               VerticalAlignment="Center" FontSize="24" 
+                                               FontWeight="Bold" Grid.Column="3" 
+                                                Text="{Binding Status}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="White"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="Confirm">
+                                                        <Setter Property="Foreground" Value="LimeGreen"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="Undetected">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="UnMatch">
+                                                        <Setter Property="Foreground" Value="Orange"/>
+                                                    </DataTrigger>
+                                                    <!-- Waiting 預設就是白色，不需要特別設定 -->
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

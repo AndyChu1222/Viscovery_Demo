@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Serialization;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,40 @@ namespace ViscoveryDemo.Presentation.ViewModels
 
         public NavigationStateMachine StateMachine { get; } = new NavigationStateMachine();
 
-        public ObservableCollection<Order> Orders { get; } = new ObservableCollection<Order>();
+        private ObservableCollection<Order> _order = new ObservableCollection<Order>();
+        public ObservableCollection<Order> Orders
+        {
+            get => _order;
+            set
+            {
+                _order = value; OnPropertyChanged();
+            }
+        }
+
+        private string _scanSuccessText;
+        public string ScanSuccessText
+        {
+            get
+            {
+                return _scanSuccessText;
+            }
+            set
+            {
+                _scanSuccessText = value; OnPropertyChanged();
+            }
+        }
+        private string _scanFailText;
+        public string ScanFailText
+        {
+            get
+            {
+                return _scanFailText;
+            }
+            set
+            {
+                _scanFailText = value; OnPropertyChanged();
+            }
+        }
 
         private decimal _subtotal;
         public decimal Subtotal
@@ -93,7 +127,6 @@ namespace ViscoveryDemo.Presentation.ViewModels
             _navigationService = navigationService;
             _orderService = orderService;
             ScanCommand = new AsyncRelayCommand(ScanAsync);
-            //ScanCommand = new RelayCommand(_ => Scan());
             NewOrderCommand = new RelayCommand(_ => ClearOrders());
         }
 
@@ -129,18 +162,45 @@ namespace ViscoveryDemo.Presentation.ViewModels
 
             UpdateSummary();
 
-            if (Orders.Any(o => o.Status == OrderStatus.Undetected))
+            if (Orders.Any(o => o.Status == OrderStatus.Undetected || o.Status == OrderStatus.UnMatch))
             {
                 FailedVisibility = Visibility.Visible;
+                SetFailText();
                 SuccessVisibility = Visibility.Collapsed;
             }
             else
             {
                 FailedVisibility = Visibility.Collapsed;
+                SetSuccessText();
                 SuccessVisibility = Visibility.Visible;
-            }
 
+            }
             StandbyVisibility = Visibility.Collapsed;
+        }
+
+        private void SetSuccessText()
+        {
+            var confirmCount = Orders.Count(x => x.Status == OrderStatus.Confirm);
+            ScanSuccessText = "";
+            if (confirmCount > 0)
+            {
+                ScanSuccessText += $@"{confirmCount} Items Scan Success";
+            }
+        }
+
+        private void SetFailText()
+        {
+            var undetectedCount = Orders.Count(x => x.Status == OrderStatus.Undetected);
+            var unMatchCount = Orders.Count(x => x.Status == OrderStatus.UnMatch);
+            ScanFailText = "";
+            if (undetectedCount > 0)
+            {
+                ScanFailText += $@"{undetectedCount} Items Scan Undetected ";
+            }
+            if (unMatchCount > 0)
+            {
+                ScanFailText += $@"{unMatchCount} Items Scan UnMatch";
+            }
         }
 
         private void ClearOrders()

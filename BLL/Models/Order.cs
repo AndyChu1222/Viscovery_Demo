@@ -7,7 +7,8 @@ namespace ViscoveryDemo.BLL.Models
     {
         Waiting,
         Confirm,
-        Undetected
+        Undetected,
+        UnMatch
     }
 
     public class Order : INotifyPropertyChanged
