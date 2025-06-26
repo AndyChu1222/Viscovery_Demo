@@ -8,7 +8,7 @@
         Loaded="Window_Loaded"
          KeyDown="InputTextBox_KeyDown" Visibility="Visible" Opacity="0">
 
-    <StackPanel Margin="10">
+    <StackPanel Margin="10" Opacity="0">
         <TextBlock Text="Enter order type (1,2,3):" Margin="0,0,0,5"/>
         <TextBox x:Name="InputTextBox" Margin="0,0,0,5"/>
         <TextBlock Text="1=all pass, 2=all fail, 3=partial" Margin="0,0,0,10" FontSize="12"/>
