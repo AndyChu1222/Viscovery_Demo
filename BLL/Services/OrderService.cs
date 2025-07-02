@@ -4,6 +4,7 @@ using ViscoveryDemo.DAL.Repositories;
 using ViscoveryDemo.BLL.Models;
 using System.Windows.Controls;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ViscoveryDemo.BLL.Services
 {
@@ -28,6 +29,8 @@ namespace ViscoveryDemo.BLL.Services
                 Name = o.Name,
                 Price = o.Price
             }).ToList();
+            //MessageBox.Show("取得currentOrders成功 該套餐項目數量:"+currentOrders.Count().ToString());
+
 
             //因發現會需要等待使用者按下按鈕，若超過時間會Timeout，故暫時不使用await
             var response = _recognitionRepository.UnifiedRecognition(orderType);

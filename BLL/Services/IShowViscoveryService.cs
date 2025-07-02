@@ -11,6 +11,6 @@ namespace ViscoveryDemo.BLL.Services
         /// <summary>
         /// StartUp的時候自動開啟VisAgent
         /// </summary>
-        void StartVisAgent();
+        Task StartVisAgent();
     }
 }

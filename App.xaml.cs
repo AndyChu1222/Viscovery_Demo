@@ -12,7 +12,7 @@ namespace ViscoveryDemo
     {
         private ServiceProvider _serviceProvider;
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             var services = new ServiceCollection();
@@ -21,7 +21,7 @@ namespace ViscoveryDemo
 
             // ±Ò°Ê VisAgent
             var visAgentService = _serviceProvider.GetRequiredService<IShowViscoveryService>();
-            visAgentService.StartVisAgent();
+            await visAgentService.StartVisAgent();
 
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.DataContext = _serviceProvider.GetRequiredService<MainViewModel>();
