@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ViscoveryDemo.Presentation.Views"
              mc:Ignorable="d" Name="userControl"
-             Height="1080" Width="1920" Focusable="True"
-             d:DesignHeight="1080" d:DesignWidth="1920"
+             Height="1920" Width="1080" Focusable="True"
+             d:DesignHeight="1920" d:DesignWidth="1080"
              Background="White">
     <UserControl.Resources>
         <Style x:Key="FocusVisual">
@@ -73,12 +73,12 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Rectangle x:Name="rectangle" Fill="#FF2563EB" HorizontalAlignment="Stretch" Margin="0" RadiusY="8" RadiusX="8" VerticalAlignment="Stretch" Width="Auto"/>
-                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="20" Margin="32,22,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Top" Width="20">
+                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="30" Margin="100,0,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Center" Width="30">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/icon-scan.png"/>
                                 </Rectangle.Fill>
                             </Rectangle>
-                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="Start Scanning" Foreground="White" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="Start Scanning" Foreground="White" FontFamily="Arial" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -136,12 +136,12 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Rectangle x:Name="rectangle" Fill="#FF16A34A" HorizontalAlignment="Stretch" Margin="0" RadiusY="8" RadiusX="8" VerticalAlignment="Stretch" Width="Auto"/>
-                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="24" Margin="32,22,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Top" Width="14">
+                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="48" Margin="100,0,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Center" Width="30">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/icon_check.png"/>
                                 </Rectangle.Fill>
                             </Rectangle>
-                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="Confirm Order" Foreground="White" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="Confirm Order" Foreground="White" FontFamily="Arial" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -220,12 +220,12 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Rectangle x:Name="rectangle" Fill="#FF4B5563" HorizontalAlignment="Stretch" Margin="0" RadiusY="8" RadiusX="8" VerticalAlignment="Stretch" Width="Auto"/>
-                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="24" Margin="32,22,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Top" Width="16">
+                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="42" RadiusY="0" RadiusX="0" VerticalAlignment="Center" Width="30" Margin="100,0,0,0">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/icon_new.png"/>
                                 </Rectangle.Fill>
                             </Rectangle>
-                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="New Order" Foreground="White" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="New Order" Foreground="White" FontFamily="Arial" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -238,7 +238,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid x:Name="rootGrid" Opacity="0">
+    <Grid x:Name="rootGrid" Opacity="100">
         <Grid.RenderTransform>
             <TranslateTransform Y="30"/>
         </Grid.RenderTransform>
@@ -275,47 +275,51 @@
                 <GradientStop Color="#FF1F2937" Offset="0.75"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="1920">
+        <Grid Height="100" Margin="0" VerticalAlignment="Top">
             <TextBlock HorizontalAlignment="Left" Margin="220,0,0,0" TextWrapping="Wrap" Text="Prox System" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="36"/>
             <Rectangle HorizontalAlignment="Left" Height="70" Margin="20,0,0,0" VerticalAlignment="Center" Width="180">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/logo-ori.png"/>
                 </Rectangle.Fill>
-            </Rectangle>        </Grid>
-        <Grid HorizontalAlignment="Left" Height="980" Margin="0" VerticalAlignment="Bottom" Width="1920">
+            </Rectangle>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Margin="20,0,20,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="6*"/>
             </Grid.RowDefinitions>
-            <Grid x:Name="status_grid" HorizontalAlignment="Center" Height="100" Margin="0" VerticalAlignment="Center" Width="1820">
+            <Grid x:Name="status_grid" Height="100" Margin="0,0,0,10" VerticalAlignment="Center">
                 <Grid x:Name="stanby_grey" Margin="0,10" Visibility="{Binding StandbyVisibility}">
-                    <Rectangle x:Name="g" Height="80" VerticalAlignment="Top" Width="1820" Fill="#FF434343" RadiusX="8" RadiusY="8" Margin="0"/>
+                    <Rectangle x:Name="g" Height="80" VerticalAlignment="Top" Fill="#FF434343" RadiusX="8" RadiusY="8" Margin="0"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,17.14,0,17.14" TextWrapping="Wrap" Text="Please start scanning..." VerticalAlignment="Center" Foreground="White" FontSize="36" FontFamily="Arial"/>
                 </Grid>
                 <Grid x:Name="successful_green" Margin="0,10" Visibility="{Binding SuccessVisibility}">
-                    <Rectangle x:Name="ge" Height="80" VerticalAlignment="Top" Width="1820" Fill="#FF14532D" RadiusX="8" RadiusY="8"/>
+                    <Rectangle x:Name="ge" Height="80" VerticalAlignment="Top" Fill="#FF14532D" RadiusX="8" RadiusY="8"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,10,0,44.6" TextWrapping="Wrap" Text="Scan Successful" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="{Binding ScanSuccessText}" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                 </Grid>
-                <Grid x:Name="failed_red" Margin="0,10" Visibility="{Binding FailedVisibility}">
-                    <Rectangle x:Name="r" Height="80" VerticalAlignment="Top" Width="1820" Fill="#FF792319" RadiusX="8" RadiusY="8"/>
+                <Grid x:Name="failed_red" Visibility="{Binding FailedVisibility}" Margin="0,10,0,10">
+                    <Rectangle x:Name="r" Height="80" VerticalAlignment="Top" Fill="#FF792319" RadiusX="8" RadiusY="8"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,10,0,44.6" TextWrapping="Wrap" Text="Scan Failed" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                     <TextBlock HorizontalAlignment="Left" Margin="40,44.6,0,10" TextWrapping="Wrap" Text="{Binding ScanFailText}" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial"/>
                 </Grid>
             </Grid>
-            <Grid Margin="0,0,0,50" Grid.Row="1" VerticalAlignment="Top" Width="1820" Height="780">
+            <Grid Margin="0,0,0,50" Grid.Row="1" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="287*"/>
+                    <RowDefinition Height="103*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Grid x:Name="detected_grid" Margin="0,0,25,0" Grid.RowSpan="2">
+                <Grid x:Name="detected_grid" Height="600" Margin="0,0,0,20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Rectangle Fill="#FF2C3A4D" RadiusY="8" RadiusX="8" Grid.RowSpan="2"/>
                     <Rectangle x:Name="Line" Fill="White" HorizontalAlignment="Left" Height="2" Margin="40,0" RadiusY="8" RadiusX="8" VerticalAlignment="Bottom" Width="1116"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="40,24.125,0,25.125" TextWrapping="Wrap" Text="Detected Items" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Arial" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="40,24.125,0,25.125" TextWrapping="Wrap" Text="Detected Items" VerticalAlignment="Center" Foreground="White" FontSize="30" FontFamily="Arial" FontWeight="Bold"/>
                     <ItemsControl ItemsSource="{Binding Orders}" Margin="0,20" Grid.Row="1" HorizontalAlignment="Center">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -373,19 +377,23 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Grid>
-                <Grid Grid.Column="1">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="400"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid x:Name="ordered_grid" Height="400" Margin="0" VerticalAlignment="Top" Grid.RowSpan="2">
+                    <Grid x:Name="ordered_grid" Margin="0,0,10,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Rectangle Fill="#FF2C3A4D" RadiusY="8" RadiusX="8" Margin="0" Grid.RowSpan="2"/>
                         <Rectangle x:Name="Line_Copy" Fill="White" Height="2" Margin="40,0" RadiusY="8" RadiusX="8" VerticalAlignment="Bottom"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="40,24.125,0,24.125" TextWrapping="Wrap" Text="Order Summary" VerticalAlignment="Center" Foreground="White" FontSize="25" FontWeight="Bold" FontFamily="Arial"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="40,24.125,0,24.125" TextWrapping="Wrap" Text="Order Summary" VerticalAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold" FontFamily="Arial"/>
                         <Grid Margin="40,10" Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -397,21 +405,26 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Subtotal" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24"/>
-                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Subtotal, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Tax" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Row="1"/>
-                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Tax, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="1"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Service Fee" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Row="2"/>
-                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding ServiceFee, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="2"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Subtotal" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30"/>
+                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Subtotal, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Tax" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Row="1"/>
+                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Tax, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="1"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Service Fee" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Row="2"/>
+                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding ServiceFee, StringFormat=C}" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="2"/>
                             <Rectangle x:Name="Line_Copy1" Fill="White" Height="2" Margin="0" RadiusY="8" RadiusX="8" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="3"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Total" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="24" Grid.Row="3"/>
-                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Total, StringFormat=C}" VerticalAlignment="Center" Foreground="#FF4ADE80" FontFamily="Arial" FontSize="24" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="3" FontWeight="Bold"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="0,23.701" TextWrapping="Wrap" Text="Total" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontSize="30" Grid.Row="3"/>
+                            <TextBlock HorizontalAlignment="Right" Margin="0,23.701" TextWrapping="Wrap" Text="{Binding Total, StringFormat=C}" VerticalAlignment="Center" Foreground="#FF4ADE80" FontFamily="Arial" FontSize="30" Grid.Column="1" FrameworkElement.FlowDirection="RightToLeft" Grid.Row="3" FontWeight="Bold"/>
                         </Grid>
                     </Grid>
-                    <Grid Margin="0,20,0,0" Grid.Row="1">
-                        <Button Content="Button" Height="60" Margin="0,0,0.001,0" VerticalAlignment="Top" Width="606.667" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource btn_scan}" Command="{Binding ScanCommand}"/>
-                        <Button Content="Button" Height="60" Margin="0,81,0,0" VerticalAlignment="Top" Width="606.667" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource confirm_btn}" Command="{Binding ConfirmCommand}" IsEnabled="{Binding CanConfirm}"/>
-                        <Button Content="Button" Height="60" Margin="0,0,0.001,0" VerticalAlignment="Bottom" Width="606.667" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource new_btn}" Command="{Binding NewOrderCommand}"/>
+                    <Grid Grid.Column="1" Margin="10,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Content="Button" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource btn_scan}" Command="{Binding ScanCommand}" Margin="0,20,0,20"/>
+                        <Button Content="Button" Margin="0,20,0,20" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource confirm_btn}" Command="{Binding ConfirmCommand}" IsEnabled="{Binding CanConfirm}" Grid.Row="1"/>
+                        <Button Content="Button" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource new_btn}" Command="{Binding NewOrderCommand}" Grid.Row="2" Margin="0,20,0,20"/>
                     </Grid>
                 </Grid>
             </Grid>

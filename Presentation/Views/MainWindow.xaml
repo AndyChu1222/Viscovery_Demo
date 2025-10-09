@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViscoveryDemo.Presentation.Views"
         mc:Ignorable="d" Name="userControl"
-        Height="1080" Width="1920" Focusable="True"
-        d:DesignHeight="1080" d:DesignWidth="1920"
+        Height="1920" Width="1080" Focusable="True"
+        d:DesignHeight="1920" d:DesignWidth="1080"
         Background="White"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -124,13 +124,13 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle Height="1080" Stroke="Black" Width="1920" Opacity="0.1">
+        <Rectangle Stroke="Black" Opacity="0.1" Margin="-1149,10,-1139,0">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/bg-image.jpg"/>
+                <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/bg-image.jpg" Stretch="Fill"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <Grid HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="1920">
+        <Grid HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="1080">
             <TextBlock HorizontalAlignment="Left" Margin="220,0,0,0" TextWrapping="Wrap" Text="Prox System" VerticalAlignment="Center" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="36"/>
             <Rectangle HorizontalAlignment="Left" Height="70" Margin="20,0,0,0" VerticalAlignment="Center" Width="180">
                 <Rectangle.Fill>
@@ -139,7 +139,7 @@
             </Rectangle>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="980" Margin="0" VerticalAlignment="Bottom" Width="1920">
+        <Grid HorizontalAlignment="Center" Height="980" VerticalAlignment="Top" Width="1078">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -196,7 +196,7 @@
             </Grid>
         </Grid>
 
-        <Button Content="Button" HorizontalAlignment="Left" Height="64" Margin="842,884,0,0" VerticalAlignment="Top" Width="236" Style="{DynamicResource ButtonStyle1}" Command="{Binding NavigateCommand}"/>
+        <Button Content="Button" HorizontalAlignment="Center" Height="64" Margin="0,800,0,0" VerticalAlignment="Top" Width="236" Style="{DynamicResource ButtonStyle1}" Command="{Binding NavigateCommand}"/>
 
         <ContentPresenter Content="{Binding MyUserControlInstance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
