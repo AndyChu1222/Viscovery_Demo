@@ -7,7 +7,7 @@ namespace ViscoveryDemo.BLL.Models
     {
         public static List<Order> GetAllProduct()
         {
-            var allItemList = new List<Order>
+            var allBurgerKingItemList = new List<Order>
             {
                 new Order { Id = 1, Code = "2025052601", Name = "華堡", Price = 144m },
                 new Order { Id = 2, Code = "2025052607", Name = "小華堡", Price = 119m },
@@ -18,38 +18,68 @@ namespace ViscoveryDemo.BLL.Models
                 new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
                 new Order { Id = 8, Code = "2025070202", Name = "華鱈魚堡", Price = 74m }
             };
-
+            var allItemList = new List<Order>
+            {
+                new Order { Id = 1, Code = "b101", Name = "小麵包", Price = 12.99m },
+                new Order { Id = 2, Code = "b102", Name = "三峽金牛角", Price = 4.99m },
+                new Order { Id = 3, Code = "b103", Name = "小圓麵包", Price = 12.99m },
+                new Order { Id = 4, Code = "b104", Name = "圓麵包", Price = 7.99m }
+                
+            };
             return allItemList;
         }
         private static readonly Dictionary<string, List<Order>> _menus = new Dictionary<string, List<Order>>()
         {
-            ["WhopperCombo"] = new List<Order>
+            #region 漢堡王版本
+            //["WhopperCombo"] = new List<Order>
+            //{
+            //    new Order { Id = 1, Code = "2025052601", Name = "華堡", Price = 144m },
+            //    new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
+            //    new Order { Id = 3, Code = "2025052605", Name = "中杯可樂", Price = 38m }
+            //},
+            //["WhopperJuniorCombo"] = new List<Order>
+            //{
+            //    new Order { Id = 2, Code = "2025052607", Name = "小華堡", Price = 119m },
+            //    new Order { Id = 6, Code = "2025052603", Name = "中薯條", Price = 59m },
+            //    new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m }
+            //},
+            //["FishBurgerCombo"] = new List<Order>
+            //{
+            //    new Order { Id = 8, Code = "2025070202", Name = "華鱈魚堡", Price = 74m },
+            //    new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m },
+            //    new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
+            //},
+            //["DoubleBurgerCombo"] = new List<Order>
+            //{
+            //    new Order { Id = 8, Code = "2025070202", Name = "華鱈魚堡", Price = 74m },
+            //    new Order { Id = 4, Code = "2025070201", Name = "雙起士牛堡", Price = 99m },
+            //    new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
+            //    new Order { Id = 6, Code = "2025052603", Name = "中薯條", Price = 59m },
+            //    new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m },
+            //    new Order { Id = 3, Code = "2025052605", Name = "中杯可樂", Price = 38m }
+            //}
+            #endregion
+
+            #region 開發測試版本
+            ["1"] = new List<Order>
             {
-                new Order { Id = 1, Code = "2025052601", Name = "華堡", Price = 144m },
-                new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
-                new Order { Id = 3, Code = "2025052605", Name = "中杯可樂", Price = 38m }
+                new Order { Id = 1, Code = "b103", Name = "小圓麵包", Price = 12.99m },
+                new Order { Id = 2, Code = "b102", Name = "三峽金牛角", Price = 4.99m },
+                new Order { Id = 3, Code = "b104", Name = "圓麵包", Price = 7.99m }
             },
-            ["WhopperJuniorCombo"] = new List<Order>
+            ["2"] = new List<Order>
+            
             {
-                new Order { Id = 2, Code = "2025052607", Name = "小華堡", Price = 119m },
-                new Order { Id = 6, Code = "2025052603", Name = "中薯條", Price = 59m },
-                new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m }
+                new Order { Id = 1, Code = "b103", Name = "小圓麵包", Price = 12.99m },
+                new Order {Id = 2, Code = "b101", Name = "小麵包", Price = 12.99m}
             },
-            ["FishBurgerCombo"] = new List<Order>
+            ["3"] = new List<Order>
             {
-                new Order { Id = 8, Code = "2025070202", Name = "華鱈魚堡", Price = 74m },
-                new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m },
-                new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
-            },
-            ["DoubleBurgerCombo"] = new List<Order>
-            {
-                new Order { Id = 8, Code = "2025070202", Name = "華鱈魚堡", Price = 74m },
-                new Order { Id = 4, Code = "2025070201", Name = "雙起士牛堡", Price = 99m },
-                new Order { Id = 7, Code = "2025070203", Name = "雞塊", Price = 75m },
-                new Order { Id = 6, Code = "2025052603", Name = "中薯條", Price = 59m },
-                new Order { Id = 5, Code = "2025070204", Name = "中杯微糖紅茶", Price = 38m },
-                new Order { Id = 3, Code = "2025052605", Name = "中杯可樂", Price = 38m }
+                new Order { Id = 1, Code = "b101", Name = "小麵包", Price = 12.99m },
+                new Order { Id = 2, Code = "b102", Name = "三峽金牛角", Price = 4.99m },
+                new Order { Id = 3, Code = "b103", Name = "小圓麵包", Price = 12.99m }
             }
+            #endregion
         };
 
         public static void Register(string key, IEnumerable<Order> orders)
