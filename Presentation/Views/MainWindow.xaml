@@ -8,7 +8,7 @@
         Height="1920" Width="1080" Focusable="True"
         d:DesignHeight="1920" d:DesignWidth="1080"
         Background="White"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -44,11 +44,6 @@
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock">
-                                                <EasingThicknessKeyFrame KeyTime="0" Value="20,10,0,10"/>
-                                            </ThicknessAnimationUsingKeyFrames>
-                                        </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="MouseOver"/>
                                     <VisualState x:Name="Pressed">
@@ -59,12 +54,6 @@
                                             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock">
                                                 <EasingColorKeyFrame KeyTime="0" Value="#FF8B8B8B"/>
                                             </ColorAnimationUsingKeyFrames>
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
-                                            </DoubleAnimationUsingKeyFrames>
-                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock">
-                                                <EasingThicknessKeyFrame KeyTime="0" Value="20,10,0,10"/>
-                                            </ThicknessAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled"/>
@@ -87,11 +76,6 @@
                                 </Rectangle.Fill>
                             </Rectangle>
                             <TextBlock x:Name="textBlock" Margin="10,10,0,10" TextWrapping="Wrap" Text="Start Scanning" Foreground="White" FontFamily="Arial" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="20" Margin="32,22,0,0" RadiusY="0" RadiusX="0" VerticalAlignment="Top" Width="20">
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/icon-scan.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true"/>
@@ -124,9 +108,9 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle Stroke="Black" Opacity="0.1" Margin="-1149,10,-1139,0">
+        <Rectangle Stroke="Black" Opacity="0.1" Margin="1,10,0,0">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/bg-image.jpg" Stretch="Fill"/>
+                <ImageBrush ImageSource="pack://application:,,,/Presentation/Image/bg-image.jpg" Stretch="None"/>
             </Rectangle.Fill>
         </Rectangle>
 
