@@ -8,7 +8,7 @@
         Height="1920" Width="1080" Focusable="True"
         d:DesignHeight="1920" d:DesignWidth="1080"
         Background="White"
-        WindowStartupLocation="CenterScreen" WindowStyle="None">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" SizeToContent="Width" ShowInTaskbar="False" WindowState="Maximized" ResizeMode="NoResize" Topmost="True">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
