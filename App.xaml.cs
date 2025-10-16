@@ -37,7 +37,7 @@ namespace ViscoveryDemo
             services.AddSingleton<IShowViscoveryService, ShowViscoveryService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IOrderRepository, InMemoryOrderRepository>();
-            services.AddSingleton<IUnifiedRecognitionRepository, InMemoryUnifiedRecognitionRepository>();
+            services.AddSingleton<IUnifiedRecognitionRepository, ApiUnifiedRecognitionRepository>();
             services.AddSingleton<IOrderService, OrderService>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MainViewModel>();
